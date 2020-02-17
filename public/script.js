@@ -16,15 +16,13 @@ let result = function() {
 	document.getElementById('typeOfBonus').innerHTML = ' ';
 
 	// change URL depending on where the server is. This had to be changed when testing on mobile devices.
-	let urlToFetch = 'http://127.0.0.1:3000/api2';
+	let urlToFetch = 'http://127.0.0.1:3000/api';
 
 	//move fetch url to variable
 	fetch(urlToFetch)
-		.then(function(response) {
-			return response.json();
-		})
+		.then(response => response.json())
 		.then(function(myJson) {
-			//console.log(myJson);
+			console.log(myJson);
 
 			if (myJson.winBig === true) {
 				let element = document.createElement('img');
