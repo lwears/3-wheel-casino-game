@@ -1,19 +1,25 @@
-document.getElementById('demo').onclick = function () {
+const goButton = document.getElementById('start');
+
+goButton.onclick = function () {
   result();
 };
 
+function clearElements() {
+    // clear the element to start fresh page
+    if (document.contains(document.getElementById('whichWin'))) {
+      document.getElementById('whichWin').remove();
+    }
+    if (document.contains(document.getElementById('whichBonus'))) {
+      document.getElementById('whichBonus').remove();
+    }
+  
+    document.getElementById('typeOfWin').textContent = ' ';
+    document.getElementById('typeOfBonus').textContent = ' ';
+}
+
 async function result() {
-  // clear the element to start fresh page
-  if (document.contains(document.getElementById('whichWin'))) {
-    document.getElementById('whichWin').remove();
-  }
-  if (document.contains(document.getElementById('whichBonus'))) {
-    document.getElementById('whichBonus').remove();
-  }
 
-  document.getElementById('typeOfWin').textContent = ' ';
-  document.getElementById('typeOfBonus').textContent = ' ';
-
+  clearElements();
   // change URL depending on where the server is.
   // This had to be changed when testing on mobile devices.
   const urlToFetch = 'http://127.0.0.1:3000/api';
@@ -42,9 +48,9 @@ async function result() {
 
   if (gameResult.winBonus) {
     createBonusElement();
-    document.getElementById('demo').disabled = true;
+    goButton.disabled = true;
     setTimeout(function () {
-      document.getElementById('demo').disabled = false;
+      goButton.disabled = false;
     }, 2500);
     setTimeout(function () {
       result();
