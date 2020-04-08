@@ -1,10 +1,13 @@
-# fullstackapp
-code Assignment fullstack app
+# 3 Wheel casino game
+
+## code Assignment fullstack app
+
+Interview Question for previous job application
 
 Below are were the app requirements
 
 Requirements General
-- The application must work in major desktop and mobile devices (please state which devices/
+- The application must work in major desktop and mobile devices
 - browsers the application has been tested on)
 The general principles by which the application will be evaluated are maintainability, testability and
 - reusability.
