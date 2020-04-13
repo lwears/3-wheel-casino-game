@@ -5,8 +5,6 @@ const app = express();
 
 app.use(express.static('public'));
 
-// Create array of 3 numbers no higher than 5
-// https://stackoverflow.com/questions/44164997/can-you-implement-a-while-loop-inside-a-curried-arrow-function-expression
 const randomNumbers = () => {
   const arr = [];
   while (arr.length < 3) {
@@ -16,15 +14,12 @@ const randomNumbers = () => {
   return arr;
 };
 
-// Bonus round, randomly calculate number, if number = 6 bonus triggered
 const bonus = () => {
   const chance = 6;
   const bonusTrue = Math.floor(Math.random() * chance);
   return bonusTrue === chance - 1;
 };
 
-// Final function, calling all 4 previous functions and returning as one JS object
-// to be passed to frontend
 const getResult = () => {
   const ranNum = randomNumbers();
   const winArr = ranNum.filter((number) => ranNum.indexOf(number) !== ranNum.lastIndexOf(number));
