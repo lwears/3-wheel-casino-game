@@ -22,14 +22,17 @@ const bonus = () => {
 
 const getResult = () => {
   const ranNum = randomNumbers();
-  const winArr = ranNum.filter((number) => ranNum.indexOf(number) !== ranNum.lastIndexOf(number));
+  const winArr = ranNum.filter((num) => ranNum.indexOf(num) !== ranNum.lastIndexOf(num));
   const winBig = winArr.length === 3;
   const winBonus = bonus();
   let winSmall;
   if (!winBig) winSmall = winArr.length === 2;
 
   return {
-    ranNum, winSmall, winBig, winBonus,
+    ranNum,
+    winSmall,
+    winBig,
+    winBonus,
   };
 };
 
@@ -45,6 +48,8 @@ app.listen(3000, () => {
   console.log('Express server started at port 3000');
 });
 
-module.exports.getResult = getResult;
-module.exports.bonus = bonus;
-module.exports.randomNumbers = randomNumbers;
+module.exports = {
+  getResult,
+  bonus,
+  randomNumbers,
+};
